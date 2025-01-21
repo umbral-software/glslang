@@ -586,6 +586,7 @@ public:
         Id coarse;
         bool nonprivate;
         bool volatil;
+        bool nontemporal;
     };
 
     // Select the correct texture operation based on all inputs, and emit the correct instruction
@@ -754,6 +755,7 @@ public:
             unsigned shadercallcoherent : 1;
             unsigned nonprivate : 1;
             unsigned volatil : 1;
+            unsigned nontemporal : 1;
             unsigned isImage : 1;
             unsigned nonUniform : 1;
 
@@ -766,6 +768,7 @@ public:
                 shadercallcoherent = 0;
                 nonprivate = 0;
                 volatil = 0;
+                nontemporal = 0;
                 isImage = 0;
                 nonUniform = 0;
             }
@@ -779,6 +782,7 @@ public:
                 shadercallcoherent |= other.shadercallcoherent;
                 nonprivate |= other.nonprivate;
                 volatil |= other.volatil;
+                nontemporal = other.nontemporal;
                 isImage |= other.isImage;
                 nonUniform |= other.nonUniform;
                 return *this;

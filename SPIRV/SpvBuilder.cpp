@@ -3152,6 +3152,9 @@ Id Builder::createTextureCall(Decoration precision, Id resultType, bool sparse, 
     if (parameters.volatil) {
         mask = mask | ImageOperandsVolatileTexelKHRMask;
     }
+    if (parameters.nontemporal) {
+        mask = mask | ImageOperandsNontemporalMask;
+    }
     mask = mask | signExtensionMask;
     // insert the operand for the mask, if any bits were set.
     if (mask != ImageOperandsMaskNone)
